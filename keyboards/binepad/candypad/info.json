@@ -27,12 +27,12 @@
     "encoder": {
         "rotary": [
             {
-                "pin_a": "GP1",
-                "pin_b": "GP2"
-            },
-            {
                 "pin_a": "GP28",
                 "pin_b": "GP27"
+            },
+            {
+                "pin_a": "GP1",
+                "pin_b": "GP2"
             }
         ]
     },
