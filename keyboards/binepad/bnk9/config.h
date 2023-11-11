@@ -7,3 +7,11 @@
 
 #define WS2812_PIO_USE_PIO1
 #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_GRADIENT_LEFT_RIGHT
+
+#define ____ NO_PIN
+// *NB*: DIRECT_PINS_2 must match the MATRIX_ROWS / MATRIX_COLS matrix structure
+#define DIRECT_PINS_2 { \
+    { ____, ____, ____ }, \
+    { ____, ____, ____ }, \
+    { ____, ____, ____ }, \
+    { GP12, ____, ____ } }

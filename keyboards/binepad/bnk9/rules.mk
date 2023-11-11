@@ -1,1 +1,4 @@
-# This file intentionally left blank
+# @see `info.json` for config
+
+CUSTOM_MATRIX = yes
+SRC += matrix.c
