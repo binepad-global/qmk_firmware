@@ -5,7 +5,6 @@
     "maintainer": "binepad",
     "processor": "RP2040",
     "bootloader": "rp2040",
-    "diode_direction": "COL2ROW",
     "usb": {
         "vid": "0x4249",
         "pid": "0x4350",
@@ -20,6 +19,7 @@
         "nkro": true,
         "encoder": true
     },
+    "diode_direction": "COL2ROW",
     "matrix_pins": {
         "cols": ["GP15", "GP14", "GP13", "GP10"],
         "rows": ["GP12", "GP9", "GP7", "GP6", "GP5", null]
