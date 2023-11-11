@@ -1,4 +1,5 @@
-# This file only includes the source references
+# @see `info.json` for config
 
 CUSTOM_MATRIX = yes
 SRC += matrix.c
+
