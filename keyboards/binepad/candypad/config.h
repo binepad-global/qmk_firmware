@@ -13,18 +13,18 @@
 #define I2C_DRIVER   I2CD1
 
 /* ----- OLED ----- */
-#ifdef OLED_DRIVER_ENABLE
+#ifdef OLED_ENABLE
     /* configure oled driver for the 128x32 oled */
     #define OLED_DISPLAY_128X32
-    #define OLED_TIMEOUT 0
+    #define OLED_TIMEOUT 120000
     #define OLED_BRIGHTNESS 128
     #define OLED_UPDATE_INTERVAL 33 // ~30fps
 
     /* Font */
     #define OLED_FONT_H "glcdfont.c"
-    #define OLED_FONT_WIDTH 5
+    #define OLED_FONT_WIDTH 6
     #define OLED_FONT_HEIGHT 8
-#endif
+#endif  // OLED_ENABLE
 
 /* ---- Direct pins, for use in `matrix.c` (please read that file) ----- */
 #define ____ NO_PIN

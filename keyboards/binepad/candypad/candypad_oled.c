@@ -30,9 +30,24 @@ static char* get_enc_mode(uint8_t encoder) {
     static char s_l_r[4] = {27, 38, 26, 0};  // left and right
 
     uint8_t layer = get_highest_layer(layer_state);
-    uint16_t keycode = keycode_at_encodermap_location(layer, encoder, true);  // only reads ENCODER_CW
+    uint16_t keycode = KC_TRNS;
+
+    while (keycode == KC_TRNS) {
+        keycode = keycode_at_encodermap_location(layer, encoder, true);  // only reads ENCODER_CW
+        if (keycode == KC_TRNS) {
+            if (layer > 0) {
+                layer--;
+            } else {
+                keycode = KC_NO;
+            }
+        }
+    }
 
     switch (keycode) {
+        case KC_NO:
+            return " - ";
+            break;
+
         case KC_WH_U:
         case KC_WH_D:
             return "MWL";
