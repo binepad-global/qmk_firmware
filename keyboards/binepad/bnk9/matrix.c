@@ -1,19 +1,21 @@
-// Copyright 2023 binepad (@binepad)
+// Copyright 2023 Vino Rodrigues (@vinorodrigues)
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 /**
  * This file is mostly a copy of `matrix.c` from the QMK core, however
  * it assumes the matrix is always COL2ROW and that the KB has BOTH
- * matrix and direct pins.  For direct pins define
- *   `DIRECT_PINS_2`
- * This stucture must match exactly the MATRIX_ROWS / MATRIX_COLS matrix
+ * matrix and direct pins.
+
+ * For direct pins define
+ *   `DIRECT_PINS_CUSTOM`
+ * This stucture must match exactly the MATRIX_ROWS / MATRIX_COLS matrix.
+ * Row that supports direct pins **must** have the row set to NO_PIN in the matrix.
 */
 
 #include "matrix.h"
 #include "debounce.h"
 #include "atomic_util.h"
 #include <string.h>
-// #include "timer.h"
 #include "wait.h"
 #include "print.h"
 #include "debug.h"
@@ -33,9 +35,9 @@
 static pin_t row_pins[MATRIX_ROWS] = MATRIX_ROW_PINS;
 static pin_t col_pins[MATRIX_COLS] = MATRIX_COL_PINS;
 
-// define DIRECT_PINS_2 in `config.h`
+// define DIRECT_PINS_CUSTOM in `config.h`
 // ** NB: ** must match the MATRIX_ROWS / MATRIX_COLS matrix structure
-static pin_t direct_pins[MATRIX_ROWS][MATRIX_COLS] = DIRECT_PINS_2;
+static pin_t direct_pins[MATRIX_ROWS][MATRIX_COLS] = DIRECT_PINS_CUSTOM;
 
 /* matrix state(1:on, 0:off) */
 matrix_row_t raw_matrix[MATRIX_ROWS];
@@ -48,7 +50,6 @@ __attribute__((weak)) void matrix_init_kb(void) { matrix_init_user(); }
 __attribute__((weak)) void matrix_scan_user(void) {}
 
 __attribute__((weak)) void matrix_scan_kb(void) { matrix_scan_user(); }
-
 
 #define print_matrix_header() print("\nr/c 01234567\n")
 #define print_matrix_row(row) print_bin_reverse8(matrix_get_row(row))
