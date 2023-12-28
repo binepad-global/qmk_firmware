@@ -1,0 +1,47 @@
+{
+    "manufacturer": "binepad",
+    "keyboard_name": "BNR1W",
+    "url": "https://www.binepad.com/product-page/bnr1w",
+    "maintainer": "vinorodrigues",
+    "processor": "RP2040",
+    "bootloader": "rp2040",
+    "diode_direction": "COL2ROW",
+    "usb": {
+        "vid": "0x4249",
+        "pid": "0x4242",
+        "device_version": "1.0.0"
+    },
+    "features": {
+        "bootmagic": true,
+        "command": true,
+        "console": true,
+        "extrakey": true,
+        "mousekey": true,
+        "encoder": true,
+        "bluetooth": true
+    },
+    "bluetooth": {
+        "driver": "custom"
+    },
+    "matrix_pins": {
+        "direct": [
+            ["GP27"]
+        ]
+    },
+    "encoder": {
+        "rotary": [
+            {
+                "pin_a": "GP28",
+                "pin_b": "GP29"
+            }
+        ]
+    },
+    "community_layouts": ["ortho_1x1"],
+    "layouts": {
+        "LAYOUT_ortho_1x1": {
+            "layout": [
+                {"matrix": [0, 0], "x": 0, "y": 0, "w": 2, "h": 2}
+            ]
+        }
+    }
+}
