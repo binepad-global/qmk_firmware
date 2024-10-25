@@ -58,8 +58,8 @@
     "url": "https://www.binepad.com/product-page/bnk8",
     "usb": {
         "device_version": "1.0.0",
-        "pid": "0x4E41",
-        "vid": "0x4249"
+        "vid": "0x4249",
+        "pid": "0x4E41"
     },
     "ws2812": {
         "pin": "C15"
@@ -70,12 +70,12 @@
                 {"label": "1", "matrix": [0, 0], "x": 0, "y": 0},
                 {"label": "2", "matrix": [0, 1], "x": 1, "y": 0},
                 {"label": "Knob", "matrix": [0, 2], "x": 2, "y": 0},
-                {"label": "4", "matrix": [1, 0], "x": 0, "y": 1},
-                {"label": "5", "matrix": [1, 1], "x": 1, "y": 1},
-                {"label": "6", "matrix": [1, 2], "x": 2, "y": 1},
-                {"label": "7", "matrix": [2, 0], "x": 0, "y": 2},
-                {"label": "8", "matrix": [2, 1], "x": 1, "y": 2},
-                {"label": "9", "matrix": [2, 2], "x": 2, "y": 2}
+                {"label": "3", "matrix": [1, 0], "x": 0, "y": 1},
+                {"label": "4", "matrix": [1, 1], "x": 1, "y": 1},
+                {"label": "5", "matrix": [1, 2], "x": 2, "y": 1},
+                {"label": "6", "matrix": [2, 0], "x": 0, "y": 2},
+                {"label": "7", "matrix": [2, 1], "x": 1, "y": 2},
+                {"label": "8", "matrix": [2, 2], "x": 2, "y": 2}
             ]
         }
     }
