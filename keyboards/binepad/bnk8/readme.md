@@ -1,6 +1,6 @@
 # binepad/bnk8
 
-<!-- TODO: Load marketing image to Imgr -->
+<!-- TODO: Load marketing image to Imgur -->
 ![BINEPAD BNK8](https://placehold.co/640x240/FFF/EA5823?text=BINEPAD++BNK8)
 
 A compact 8-key 3x3 macropad with a rotary encoder at the top right.

@@ -61,6 +61,11 @@
         "vid": "0x4249",
         "pid": "0x4E41"
     },
+    "eeprom": {
+        "wear_leveling": {
+            "backing_size": 1024
+        }
+    },
     "ws2812": {
         "pin": "C15"
     },
