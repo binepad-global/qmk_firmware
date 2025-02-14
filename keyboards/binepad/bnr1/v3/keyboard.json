@@ -15,7 +15,7 @@
     "encoder": {
         "enabled": true,
         "rotary": [
-            {"pin_a": "GP3", "pin_b": "GP2"}
+            {"pin_a": "GP3", "pin_b": "GP2", "resolution": 2}
         ]
     },
     "layouts": {
