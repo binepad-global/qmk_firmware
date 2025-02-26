@@ -1,0 +1,44 @@
+{
+    "manufacturer": "Binepad",
+    "keyboard_name": "knobX1",
+    "maintainer": "binepad",
+    "bootloader": "stm32duino",
+    "bootloader_instructions": "Hold down the small button on the side of the unit and plug in the keyboard.",
+    "diode_direction": "COL2ROW",
+    "eeprom": {
+        "wear_leveling": {
+            "backing_size": 1024
+        }
+    },
+    "features": {
+        "nkro": false
+    },
+    "matrix_pins": {
+        "direct": [
+            ["A7", "A15"]
+        ]
+    },
+    "processor": "STM32F103",
+    "url": "https://binepad.com/products/knobx1",
+    "usb": {
+        "device_version": "1.0.0",
+        "pid": "0x4249",
+        "vid": "0x5831"
+    },
+    "ws2812": {
+        "pin": "C13"
+    },
+    "encoder": {
+        "rotary": [
+            {"pin_a": "B12", "pin_b": "B13", "resolution": 2}
+        ]
+    },
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"matrix": [0, 0], "x": 0, "y": 0},
+                {"matrix": [0, 1], "x": 1, "y": 0}
+            ]
+        }
+    }
+}
