@@ -11,11 +11,15 @@
         }
     },
     "features": {
-        "nkro": false
+        "rgblight": true,
+        "nkro": false,
+        "midi": true,
+        "encoder": true
     },
     "matrix_pins": {
         "direct": [
-            ["A7", "A15"]
+            ["A7"],
+            ["A15"]
         ]
     },
     "processor": "STM32F103",
@@ -28,6 +32,16 @@
     "ws2812": {
         "pin": "C13"
     },
+    "rgblight": {
+        "led_count": 2,
+        "sleep": true,
+        "animations": {
+            "breathing": true,
+            "rainbow_mood": true,
+            "rainbow_swirl": true,
+            "rgb_test": true
+        }
+    },
     "encoder": {
         "rotary": [
             {"pin_a": "B12", "pin_b": "B13", "resolution": 2}
@@ -37,7 +51,7 @@
         "LAYOUT": {
             "layout": [
                 {"matrix": [0, 0], "x": 0, "y": 0},
-                {"matrix": [0, 1], "x": 1, "y": 0}
+                {"matrix": [1, 0], "x": 1, "y": 0, "w": 3, "h": 3}
             ]
         }
     }
