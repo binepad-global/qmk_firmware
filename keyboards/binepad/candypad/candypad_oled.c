@@ -6,7 +6,6 @@
 #include "candypad.h"
 #include "oled_driver.h"
 #include "keymap_introspection.h"
-// #include OLED_FONT_H
 #include <stdio.h> // needed for `snprintf`
 #ifdef CONSOLE_ENABLE
 #    include "print.h"
@@ -26,8 +25,9 @@ static void __candypad_render_logo_default(void) {
     oled_write_raw_P((char *)raw_logo, sizeof(raw_logo));
 }
 
+// weak so that user keymaps can make their own
 __attribute__((weak)) bool candypad_render_logo_user(void) {
-    return false;  // return true if your user keymap renders it's own
+    return false;  // return true if your user keymap renders its own
 }
 
 __attribute__((weak)) bool candypad_render_logo_kb(void) {
@@ -117,7 +117,16 @@ static void __draw_line_v(uint8_t x, uint8_t y, uint8_t len, bool on) {
     }
 }
 
-void draw_default(void) {
+// weak so that user keymaps can make their own
+__attribute__((weak)) bool candypad_render_default_user(void) {
+    return false;  // return true if your user keymap renders its own
+}
+
+__attribute__((weak)) bool candypad_render_default_kb(void) {
+    if (candypad_render_default_user()) {
+        return true; // was handled by user code
+    }
+
     bool on;
 
     // --- Show Layer ---
@@ -199,6 +208,8 @@ void draw_default(void) {
     __draw_line_h(MXDS_X - 2, MXDS_Y + 7, 8, true);
     __draw_line_v(MXDS_X - 2, MXDS_Y - 1, 8, true);
     __draw_line_v(MXDS_X + 5, MXDS_Y - 1, 8, true);
+
+    return true; // was handled here
 }
 
 bool oled_task_kb(void) {
@@ -216,6 +227,7 @@ bool oled_task_kb(void) {
     switch (oled_mode) {
         case OLED_OFF:
             // do nothing
+            // this PCB has no digital switch to power off the OLED :(
             break;
 
         case OLED_SPLASH:
@@ -228,7 +240,7 @@ bool oled_task_kb(void) {
 
         case OLED_DEFAULT:
         default:
-            draw_default();
+            candypad_render_default_kb();
             break;
     }
 

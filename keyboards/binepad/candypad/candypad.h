@@ -20,6 +20,8 @@ enum oled_modes {
 
 bool candypad_render_logo_user(void);
 bool candypad_render_logo_kb(void);
+bool candypad_render_default_user(void);
+bool candypad_render_default_kb(void);
 
 // OLED functions
 extern uint8_t oled_mode;

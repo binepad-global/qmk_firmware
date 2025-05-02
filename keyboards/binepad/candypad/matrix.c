@@ -21,9 +21,6 @@
 #include <string.h>
 #include "wait.h"
 #include "print.h"
-#ifdef CONSOLE_ENABLE
-#    include "debug.h"
-#endif
 
 #ifndef DEBOUNCE
 #    define DEBOUNCE 5
