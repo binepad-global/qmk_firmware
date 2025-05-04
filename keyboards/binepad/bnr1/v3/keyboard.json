@@ -1,22 +1,22 @@
 {
-    "bootloader": "rp2040",
-    "processor": "RP2040",
     "board": "GENERIC_RP_RP2040",
-    "diode_direction": "COL2ROW",
+    "bootloader": "rp2040",
     "bootloader_instructions": "Hold down the key at (0x0) in the matrix (the 'knob' / rotary encoder) and plug in the keyboard.",
-    "usb": {
-        "pid": "0x4241",
-        "device_version": "3.0.0"
-    },
-    "matrix_pins": {
-        "cols": ["GP4"],
-        "rows": ["GP1"]
-    },
+    "diode_direction": "COL2ROW",
     "encoder": {
         "enabled": true,
         "rotary": [
             {"pin_a": "GP3", "pin_b": "GP2", "resolution": 2}
         ]
+    },
+    "matrix_pins": {
+        "cols": ["GP4"],
+        "rows": ["GP1"]
+    },
+    "processor": "RP2040",
+    "usb": {
+        "device_version": "3.0.0",
+        "pid": "0x4241"
     },
     "layouts": {
         "LAYOUT_ortho_1x1": {
