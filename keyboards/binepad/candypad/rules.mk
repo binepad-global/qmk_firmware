@@ -1,5 +1,5 @@
 # Copyright 2023 binepad (@binepad)
 # SPDX-License-Identifier: GPL-2.0-or-later
 
-SRC += matrix.c \
-       candypad_oled.c
+SRC += candypad_oled.c
+I2C_DRIVER_REQUIRED = yes
