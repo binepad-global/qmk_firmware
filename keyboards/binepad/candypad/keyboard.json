@@ -16,7 +16,7 @@
     },
     "matrix_pins": {
         "cols": ["B12", "B13", "B14", "B15"],
-        "rows": ["B1", "B0", "A7", "C6", "C5"]
+        "rows": ["B1", "B0", "A7", "A6", "A5"]
     },
     "url": "https://candykeys.com/product/candypad-keyboard",
     "usb": {
