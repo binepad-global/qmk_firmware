@@ -11,8 +11,12 @@
         ]
     },
     "features": {
+        "bootmagic": true,
         "encoder": true,
-        "nkro": true
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": true,
+        "oled": true
     },
     "matrix_pins": {
         "cols": ["B12", "B13", "B14", "B15"],
