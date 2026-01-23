@@ -171,10 +171,10 @@ __attribute__((weak)) bool candypad_render_default_kb(void) {
     oled_write_pixel(MXDS_X + 3, MXDS_Y - 1, on);
 
     // frame
-    __draw_line_h(MXDS_X - 2, MXDS_Y - 2, 8, true);
-    __draw_line_h(MXDS_X - 2, MXDS_Y + 7, 8, true);
-    __draw_line_v(MXDS_X - 2, MXDS_Y - 1, 8, true);
-    __draw_line_v(MXDS_X + 5, MXDS_Y - 1, 8, true);
+    __draw_line_h(MXDS_X - 2, MXDS_Y - 1, 8, true);
+    __draw_line_h(MXDS_X - 2, MXDS_Y + 6, 8, true);
+    __draw_line_v(MXDS_X - 2, MXDS_Y    , 8, true);
+    __draw_line_v(MXDS_X + 5, MXDS_Y    , 8, true);
 
     return true; // Was handled here
 }
