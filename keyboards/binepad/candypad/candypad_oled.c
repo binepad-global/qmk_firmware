@@ -35,7 +35,7 @@ static char *get_enc_mode(uint8_t encoder) {
 
         case KC_WH_U:
         case KC_WH_D:
-            return "MWL";
+            return "WHL";
             break;
 
         case KC_VOLD:
@@ -143,32 +143,34 @@ __attribute__((weak)) bool candypad_render_default_kb(void) {
     // --- Show keymap matrix ---
 
 #    define MXDS_X 2
-#    define MXDS_Y (OLED_FONT_HEIGHT * 3)
+#    define MXDS_Y ((OLED_FONT_HEIGHT * 3) + 1)
 
-    // matrix
-    for (uint8_t x = 0; x < MATRIX_ROWS - 1; x++) {
-        for (uint8_t y = 0; y < MATRIX_COLS; y++) {
-            on = (matrix_get_row(x) & (1 << y)) > 0;
-            oled_write_pixel(MXDS_X + y, MXDS_Y + x + 1, on);
+    // matrix, single Us
+    for (uint8_t yy = 0; yy < MATRIX_ROWS; yy++) {
+        for (uint8_t xx = 0; xx < MATRIX_COLS; xx++) {
+            if ((xx == 2 && yy == 3) || (xx == 4 && (yy == 0 || yy == 3))) {
+                continue;
+            }
+            on = (matrix_get_row(yy) & (1 << xx)) > 0;
+            oled_write_pixel(MXDS_X + xx, MXDS_Y + yy, on);
         }
     }
 
+    // matrix, 2U keys
     on = (matrix_get_row(1) & (1 << 3)) > 0; // `+`
-    oled_write_pixel(MXDS_X + 3, MXDS_Y + 1 + 2, on);
-
+    oled_write_pixel(MXDS_X + 3, MXDS_Y + 2, on);
     on = (matrix_get_row(3) & (1 << 3)) > 0; // `Enter`
-    oled_write_pixel(MXDS_X + 3, MXDS_Y + 3 + 2, on);
+    oled_write_pixel(MXDS_X + 3, MXDS_Y + 4, on);
+    on = (matrix_get_row(4) & (1 << 1)) > 0; // `0`
+    oled_write_pixel(MXDS_X, MXDS_Y + 4, on);
 
-    on = (matrix_get_row(4) & (1 << 0)) > 0; // `0`
-    oled_write_pixel(MXDS_X + 0 + 1, MXDS_Y + 4 + 1, on);
+    // matrix, knobs
+    on = (matrix_get_row(2) & (1 << 3)) > 0; // Enc 1 press
+    oled_write_pixel(MXDS_X + 2, MXDS_Y - 1, on);
+    on = (matrix_get_row(4) & (1 << 3)) > 0; // Enc 2 press
+    oled_write_pixel(MXDS_X + 3, MXDS_Y - 1, on);
 
-    on = (matrix_get_row(5) & (1 << 0)) > 0; // Enc 1 press
-    oled_write_pixel(MXDS_X + 2, MXDS_Y, on);
-
-    on = (matrix_get_row(5) & (1 << 1)) > 0; // Enc 2 press
-    oled_write_pixel(MXDS_X + 3, MXDS_Y, on);
-
-    // outline
+    // frame
     __draw_line_h(MXDS_X - 2, MXDS_Y - 2, 8, true);
     __draw_line_h(MXDS_X - 2, MXDS_Y + 7, 8, true);
     __draw_line_v(MXDS_X - 2, MXDS_Y - 1, 8, true);

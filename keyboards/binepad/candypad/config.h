@@ -19,5 +19,5 @@
 
 /* Configure oled driver for the 128x32 oled */
 #    define OLED_TIMEOUT (2 * 60 * 1000) // 2 minutes
-#    define OLED_UPDATE_INTERVAL 33       // ~30fps
+#    define OLED_UPDATE_INTERVAL 66       // ~30fps
 #endif // OLED_ENABLE
